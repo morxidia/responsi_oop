@@ -56,6 +56,7 @@ public class EvaluasiDAO {
             ps.setFloat(5, evaluasi.getNilai_inovasi());
             ps.setFloat(6, evaluasi.getNilai_akhir());
             ps.setString(7, evaluasi.getStatus());
+            ps.executeUpdate();
         }
         catch(SQLException e){
             e.printStackTrace();

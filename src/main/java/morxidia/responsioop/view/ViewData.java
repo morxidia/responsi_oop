@@ -17,13 +17,13 @@ public class ViewData extends JFrame {
         setTitle("Sistem Evaluasi Kinerja Karyawan");
         setSize(850, 450);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setLayout(new BorderLayout());
+        setLayout(null);
         setLocationRelativeTo(null);
         
         String[] column = {"ID", "Nama", "Divisi", "Target", "Disiplin", "Inovasi", "Nilai Akhir" , "Status"};
         tableModel = new DefaultTableModel(column, 0);
         
-        table = new JTable();
+        table = new JTable(tableModel);
         JScrollPane scrollPane = new JScrollPane(table);
         scrollPane.setBounds(20, 20, 550, 350);
         add(scrollPane);
@@ -105,8 +105,8 @@ public class ViewData extends JFrame {
         return tfNama.getText();
     }
     
-    public String getDivisi(){
-        return cbDivisi.getPrototypeDisplayValue();
+    public String getDivisi() {
+        return cbDivisi.getSelectedItem().toString();
     }
     
     public String getNilaiTarget(){
@@ -137,17 +137,17 @@ public class ViewData extends JFrame {
         tfInovasi.setText("");
     }
     
-    public void addTambahListener(ActionListener listener){
+    public void addTambahListener(ActionListener listener) {
         btnAdd.addActionListener(listener);
     }
-    public void addUpdateListener(ActionListener listener){
-        btnAdd.addActionListener(listener);
+    public void addUpdateListener(ActionListener listener) {
+        btnUpdate.addActionListener(listener); 
     }
-    public void addDeleteListener(ActionListener listener){
-        btnAdd.addActionListener(listener);
+    public void addDeleteListener(ActionListener listener) {
+        btnDelete.addActionListener(listener); 
     }
-    public void addClearListener(ActionListener listener){
-        btnAdd.addActionListener(listener);
+    public void addClearListener(ActionListener listener) {
+        btnClear.addActionListener(listener); 
     }
     public void addTableMouseListener(MouseAdapter listener){
         table.addMouseListener(new MouseAdapter() {

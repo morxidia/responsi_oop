@@ -71,6 +71,13 @@ public class KaryawanController {
                 float nilaiTarget = Float.parseFloat(view.getNilaiTarget());
                 float nilaiDisiplin = Float.parseFloat(view.getNilai_disiplin());
                 float nilaiInovasi = Float.parseFloat(view.getNilai_inovasi());
+                if (nilaiTarget > 100) {
+                    throw new IllegalArgumentException("Nilai Target " + nilaiTarget + " lebih dari 100");
+                } else if (nilaiDisiplin > 100) {
+                    throw new IllegalArgumentException("Nilai Disiplin " + nilaiDisiplin + " lebih dari 100");
+                } else if (nilaiInovasi > 100) {
+                    throw new IllegalArgumentException("Nilai Inovasi " + nilaiInovasi + " lebih dari 100");
+                }
                 float nilaiAkhir = (nilaiTarget*0.5f) + (nilaiDisiplin*0.3f) + (nilaiInovasi*0.2f);
                 String status = "";
                 if("Divisi Teknis".equals(divisi) && (nilaiAkhir >= 80.0)){
@@ -92,6 +99,8 @@ public class KaryawanController {
             }
             catch(NumberFormatException ex){
                 JOptionPane.showMessageDialog(view, "Nilai Input salah", "Error", JOptionPane.ERROR_MESSAGE);
+            }catch (IllegalArgumentException ex) {
+                JOptionPane.showMessageDialog(view, ex.getMessage(), "Batas Nilai", JOptionPane.WARNING_MESSAGE);
             } catch (SQLException ex) {
                 Logger.getLogger(KaryawanController.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -140,6 +149,13 @@ public class KaryawanController {
                 float nilaiTarget = Float.parseFloat(view.getNilaiTarget());
                 float nilaiDisiplin = Float.parseFloat(view.getNilai_disiplin());
                 float nilaiInovasi = Float.parseFloat(view.getNilai_inovasi());
+                if (nilaiTarget > 100) {
+                    throw new IllegalArgumentException("Nilai Target " + nilaiTarget + " lebih dari 100");
+                } else if (nilaiDisiplin > 100) {
+                    throw new IllegalArgumentException("Nilai Disiplin " + nilaiDisiplin + " lebih dari 100");
+                } else if (nilaiInovasi > 100) {
+                    throw new IllegalArgumentException("Nilai Inovasi " + nilaiInovasi + " lebih dari 100");
+                }
                 float nilaiAkhir = (nilaiTarget*0.5f) + (nilaiDisiplin*0.3f) + (nilaiInovasi*0.2f);
                 String status = "";
                 if("Divisi Teknis".equals(divisi) && (nilaiAkhir >= 80.0)){
@@ -161,6 +177,8 @@ public class KaryawanController {
             }
             catch(NumberFormatException ex){
                 JOptionPane.showMessageDialog(view, "Nilai Input salah", "Error", JOptionPane.ERROR_MESSAGE);
+            }catch (IllegalArgumentException ex) {
+                JOptionPane.showMessageDialog(view, ex.getMessage(), "Batas Nilai", JOptionPane.WARNING_MESSAGE);
             } catch (SQLException ex) {
                 Logger.getLogger(KaryawanController.class.getName()).log(Level.SEVERE, null, ex);
             }
